@@ -13,7 +13,7 @@ function setup() {
 
   rect(34,28,32,104)
   button = createButton('Ajouter Encre');
-  button.position(3, 0);
+  button.position(12, 10);
   button.mousePressed(changeBG);
 }
 
