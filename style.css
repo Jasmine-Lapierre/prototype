@@ -1,6 +1,5 @@
 body{
-    width: 1920px;
-    height: 1080px;
+    width: 100vw;
     overflow: hidden;
 }
 button{
@@ -9,4 +8,15 @@ button{
     border: solid 2px rgb(0, 0, 0);
     border-radius: 10px;
     padding: 10px;
+}
+.blanc{
+    background-color: aliceblue;
+
+}
+.rouge{
+    background-color: rgb(255, 167, 167);
+}
+.noir{
+    background-color: black;
+    color: white;
 }
