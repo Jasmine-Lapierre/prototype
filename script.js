@@ -9,11 +9,11 @@ function setup() {
   background(255);
   fill(0,0,0)
     stroke(255,255,255)
-  rect(0,0,105,140)
+  rect(0,0,105,210)
 
   rect(34,28,32,104)
-  button = createButton('Ajouter Encre');
-  button.position(12, 10);
+  button = createButton("Ajouter de <br> l'encre");
+  button.position(17, 150);
   button.mousePressed(changeBG);
 }
 

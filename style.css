@@ -1,0 +1,12 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+button{
+    color: black;
+    background-color: rgb(167, 233, 213);
+    border: solid 2px rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
+}
