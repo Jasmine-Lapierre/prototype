@@ -9,7 +9,7 @@ let buttonCouleurNoir;
 let buttonCouleurRouge;
 let couleur = "255,255,255"
 function setup() {
-  createCanvas(1920, 1080);
+  createCanvas(windowWidth, windowHeight);
   background(255);
   fill(0,0,0);
   stroke(255,255,255);
