@@ -5,7 +5,7 @@ let yPos=400;
 
 let button;
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(1920, 1080);
   background(255);
   fill(0,0,0)
     stroke(255,255,255)
