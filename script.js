@@ -18,31 +18,37 @@ function setup() {
   buttonEncre = createButton("Ajouter de <br> l'encre");
   buttonEncre.position(17, 150);
   buttonEncre.mousePressed(changeBG);
-buttonCouleurBlanc= createButton('Blanc')
-  buttonCouleurRouge= createButton('Rouge')
-buttonCouleurNoir = createButton('Noir')
- buttonCouleurBlanc.position(125,35);
+buttonCouleurBlanc= createButton('Blanc');
+  buttonCouleurOrange= createButton('Orange');
+buttonCouleurNoir = createButton('Noir');
+buttonCouleurBleu = createButton('Bleu');
 
-  buttonCouleurRouge.position(125,85);
+ buttonCouleurBlanc.position(125,35);
+ buttonCouleurBleu.position(125,190);
+ buttonCouleurOrange.position(125,85);
 buttonCouleurNoir.position(125,135);
   buttonCouleurBlanc.mousePressed(couleurBlanc);
-  buttonCouleurRouge.mousePressed(couleurRouge);
+  buttonCouleurOrange.mousePressed(couleurOrange);
   buttonCouleurNoir.mousePressed(couleurNoir);
-  buttonCouleurBlanc.class('blanc')
-  buttonCouleurNoir.class('noir')
-  buttonCouleurRouge.class('rouge')
-
+  buttonCouleurBleu.mousePressed(couleurBleu)
+  buttonCouleurBlanc.class('blanc');
+  buttonCouleurNoir.class('noir');
+  buttonCouleurOrange.class('orange');
+  buttonCouleurBleu.class('bleu')
 
 }
 let couleurChoisie = [0,0,0];
-function couleurRouge(){
-  couleurChoisie =  [255,0,0];
+function couleurOrange(){
+  couleurChoisie =  [255,103,0];
 }
 function couleurBlanc(){
-  couleurChoisie =  [255,255,255];
+  couleurChoisie =  [242,239,234];
 }
 function couleurNoir(){
-  couleurChoisie =  [0,0,0];
+  couleurChoisie =  [2,2,2];
+}
+function couleurBleu(){
+  couleurChoisie = [102,153,204]
 }
 function changeBG() {
 
@@ -52,11 +58,23 @@ function changeBG() {
 draw = function() {
   xPos=mouseX;
   yPos=mouseY;
-  if (mouseIsPressed && compteur<100){
+
         stroke(0,0,0,0)
 
     fill(couleurChoisie);
-    rect(xPos,yPos,20,30)
+    if (mouseIsPressed && compteur<100){
+
+  rect(xPos,yPos,20,30)
+
+    for(let i = 0; i < touches.length; i++) {
+      if(compteur<100){
+        fill(couleurChoisie);
+        rect(touches[i].x ,touches[i].y, 20, 30);
+        compteur +=1;
+        console.log(compteur);
+      }
+
+    }
     rect(35,30,30,100);
     fill(255,255,255)
     compteur +=1;

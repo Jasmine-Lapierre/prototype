@@ -10,13 +10,16 @@ button{
     padding: 10px;
 }
 .blanc{
-    background-color: aliceblue;
+    background-color: #F2EFEA;
 
 }
-.rouge{
-    background-color: rgb(255, 167, 167);
+.orange{
+    background-color: #FF6700;
 }
 .noir{
-    background-color: black;
+    background-color: #020202;
     color: white;
+}
+.bleu{
+    background-color: #6699CC;
 }
