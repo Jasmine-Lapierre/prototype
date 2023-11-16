@@ -6,7 +6,9 @@ let buttonCouleurBlanc;
 let buttonCouleurNoir;
 let buttonCouleurRouge;
 let buttonCouleurVert;
-
+let buttonPinceau;
+let buttonLigne;
+let modeLigne = false;
 let couleurBlanc = [242, 239, 234];
 let couleurOrange = [255, 103, 0];
 let couleurNoir = [2, 2, 2];
@@ -30,12 +32,14 @@ function setup() {
   buttonCouleurNoir = createButton('Noir');
   buttonCouleurBleu = createButton('Bleu');
   buttonCouleurVert = createButton('Vert');
+  buttonPinceau = createButton('Pinceau');
 
   buttonCouleurBlanc.position(125, 35);
   buttonCouleurOrange.position(125, 85);
   buttonCouleurNoir.position(125, 135);
   buttonCouleurBleu.position(125, 190);
   buttonCouleurVert.position(125, 240);
+  buttonPinceau.position(200, 240);
 
 
   buttonCouleurBlanc.mousePressed( function(){
@@ -64,6 +68,15 @@ function setup() {
     couleurChoisieFunction( couleurVert );
   
   } )
+  buttonPinceau.mousePressed(function(){
+
+    if(modeLigne){
+      modeLigne = !modeLigne;
+    }  else if(!modeLigne){
+      modeLigne = !modeLigne;
+    }
+  
+  } )
   buttonCouleurBlanc.class('blanc');
   buttonCouleurNoir.class('noir');
   buttonCouleurOrange.class('orange');
@@ -82,12 +95,18 @@ function couleurChoisieFunction(couleurArray) {
 
  }
   fill(couleurChoisie);
+  stroke(0,0,0);
+  strokeWeight(1);
+
   rect(35, 30, 30, 100);
   fill(255, 255, 255)
   rect(35, 30, 30, compteur);
   
 }
 function changeBG() {
+  fill(couleurChoisie);
+  stroke(0,0,0);
+  strokeWeight(1);
   rect(35, 30, 30, 100);
   compteur = 0;
 }
@@ -100,16 +119,59 @@ draw = function () {
   xPos = mouseX;
   yPos = mouseY;
   fill(couleurChoisie);
+  stroke(couleurChoisie);
 
   if (mouseIsPressed && compteur < 100 && (yPos>230 ||xPos>350)) {
+    if(modeLigne){
+      strokeWeight(grosseur); 
+            line(mouseX, mouseY, pmouseX, pmouseY);     
+     if(pmouseX ==mouseX && pmouseY ==mouseY){
 
+      strokeWeight(1); 
+
+      stroke(255, 255, 255, 1)
+  
+      rect(35, 30, 30, 100);
+      fill(255, 255, 255)
+        stroke(255, 255, 255, 0)
+        rect(35, 30, 30, compteur);
+      return;
+     }       
+     else{
+      compteur += 0.05*grosseur;
+
+    }
+    //Barre d'encre
+
+    strokeWeight(1); 
+
+    stroke(255, 255, 255, 1)
+
+    rect(35, 30, 30, 100);
+    fill(255, 255, 255)
+      stroke(255, 255, 255, 0)
+      rect(35, 30, 30, compteur);
+  //Barre d'encre
+
+       return;
+    }
+    else{
     rect(xPos, yPos, grosseur, grosseur)
     rect(35, 30, 30, 100);
     fill(255, 255, 255)
-    compteur += 0.05*grosseur;
-  //Barre d'encre
+    }
+    if(pmouseX ==mouseX && pmouseY ==mouseY){
+      stroke(255, 255, 255, 0)
+      rect(35, 30, 30, compteur);
+      return;
+     }       
+     else{
+      compteur += 0.05*grosseur;
+
+    }  //Barre d'encre
     stroke(255, 255, 255, 0)
     rect(35, 30, 30, compteur);
+
 
 
   }
