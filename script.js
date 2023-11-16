@@ -70,11 +70,8 @@ function setup() {
   } )
   buttonPinceau.mousePressed(function(){
 
-    if(modeLigne){
+
       modeLigne = !modeLigne;
-    }  else if(!modeLigne){
-      modeLigne = !modeLigne;
-    }
   
   } )
   buttonCouleurBlanc.class('blanc');
