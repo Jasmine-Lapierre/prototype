@@ -5,11 +5,14 @@ let buttonEncre;
 let buttonCouleurBlanc;
 let buttonCouleurNoir;
 let buttonCouleurRouge;
+let buttonCouleurVert;
+
 let couleurBlanc = [242, 239, 234];
 let couleurOrange = [255, 103, 0];
 let couleurNoir = [2, 2, 2];
 let couleurBleu = [102,153,204];
-let couleur = "255,255,255"
+let couleurVert = [22,219,101];
+
 let grosseur = 0;
 function setup() {
   pixelDensity(1);
@@ -26,10 +29,15 @@ function setup() {
   buttonCouleurOrange = createButton('Orange');
   buttonCouleurNoir = createButton('Noir');
   buttonCouleurBleu = createButton('Bleu');
+  buttonCouleurVert = createButton('Vert');
+
   buttonCouleurBlanc.position(125, 35);
-  buttonCouleurBleu.position(125, 190);
   buttonCouleurOrange.position(125, 85);
   buttonCouleurNoir.position(125, 135);
+  buttonCouleurBleu.position(125, 190);
+  buttonCouleurVert.position(125, 240);
+
+
   buttonCouleurBlanc.mousePressed( function(){
 
     couleurChoisieFunction( couleurBlanc );
@@ -51,10 +59,16 @@ function setup() {
     couleurChoisieFunction( couleurBleu );
   
   } )
+  buttonCouleurVert.mousePressed(function(){
+
+    couleurChoisieFunction( couleurVert );
+  
+  } )
   buttonCouleurBlanc.class('blanc');
   buttonCouleurNoir.class('noir');
   buttonCouleurOrange.class('orange');
   buttonCouleurBleu.class('bleu')
+  buttonCouleurVert.class('vert')
 
   slider = createSlider(0, 255, 100);
   slider.position(200, 35);
