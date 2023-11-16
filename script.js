@@ -138,7 +138,7 @@ draw = function () {
       return;
      }       
      else{
-      compteur += 0.05*grosseur;
+      compteur += 0.05*grosseur*((Math.abs(pmouseX-mouseX )+ Math.abs(pmouseY - mouseY))/10);
 
     }
     //Barre d'encre
