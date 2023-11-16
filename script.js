@@ -1,12 +1,14 @@
 let compteur = 0;
-let xPos = 400;
-let yPos = 400;
-
-
+let xPos = 0;
+let yPos = 0;
 let buttonEncre;
 let buttonCouleurBlanc;
 let buttonCouleurNoir;
 let buttonCouleurRouge;
+let couleurBlanc = [242, 239, 234];
+let couleurOrange = [255, 103, 0];
+let couleurNoir = [2, 2, 2];
+let couleurBleu = [102,153,204];
 let couleur = "255,255,255"
 let grosseur = 0;
 function setup() {
@@ -28,10 +30,27 @@ function setup() {
   buttonCouleurBleu.position(125, 190);
   buttonCouleurOrange.position(125, 85);
   buttonCouleurNoir.position(125, 135);
-  buttonCouleurBlanc.mousePressed(couleurBlanc);
-  buttonCouleurOrange.mousePressed(couleurOrange);
-  buttonCouleurNoir.mousePressed(couleurNoir);
-  buttonCouleurBleu.mousePressed(couleurBleu)
+  buttonCouleurBlanc.mousePressed( function(){
+
+    couleurChoisieFunction( couleurBlanc );
+  
+  } );
+
+  buttonCouleurOrange.mousePressed(function(){
+
+    couleurChoisieFunction( couleurOrange );
+  
+  } );
+  buttonCouleurNoir.mousePressed(function(){
+
+    couleurChoisieFunction( couleurNoir );
+  
+  } );
+  buttonCouleurBleu.mousePressed(function(){
+
+    couleurChoisieFunction( couleurBleu );
+  
+  } )
   buttonCouleurBlanc.class('blanc');
   buttonCouleurNoir.class('noir');
   buttonCouleurOrange.class('orange');
@@ -41,50 +60,18 @@ function setup() {
   slider.position(200, 35);
 
 }
-let couleurChoisie = [0, 0, 0];
-function couleurOrange() {
+let couleurChoisie = [2, 2, 2];
+function couleurChoisieFunction(couleurArray) {
 
+ for (i = 0; i<couleurChoisie.length; i++){
+  couleurChoisie[i] = couleurArray[i];
 
-  couleurChoisie = [255, 103, 0];
+ }
   fill(couleurChoisie);
-
   rect(35, 30, 30, 100);
   fill(255, 255, 255)
-
   rect(35, 30, 30, compteur);
-}
-function couleurBlanc() {
-
-
-  couleurChoisie = [242, 239, 234];
-  fill(couleurChoisie);
-
-  rect(35, 30, 30, 100);
-  fill(255, 255, 255)
-
-  rect(35, 30, 30, compteur);
-}
-function couleurNoir() {
-
-
-  couleurChoisie = [2, 2, 2];
-  fill(couleurChoisie);
-
-  rect(35, 30, 30, 100);
-  fill(255, 255, 255)
-
-  rect(35, 30, 30, compteur);
-}
-function couleurBleu() {
-
-
-  couleurChoisie = [102, 153, 204]
-  fill(couleurChoisie);
-
-  rect(35, 30, 30, 100);
-  fill(255, 255, 255)
-
-  rect(35, 30, 30, compteur);
+  
 }
 function changeBG() {
   rect(35, 30, 30, 100);
@@ -105,7 +92,7 @@ draw = function () {
     rect(xPos, yPos, grosseur, grosseur)
     rect(35, 30, 30, 100);
     fill(255, 255, 255)
-    compteur += 1;
+    compteur += 0.05*grosseur;
   //Barre d'encre
     stroke(255, 255, 255, 0)
     rect(35, 30, 30, compteur);
